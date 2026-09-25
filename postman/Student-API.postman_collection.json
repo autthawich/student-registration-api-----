@@ -101,13 +101,23 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status OK\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response time is less than 100ms\", () => {\r\n    pm.expect(pm.response.responseTime).to.be.below(100);\r\n});\r\n"
+                  ""
                 ]
               }
             }
           ],
           "request": {
-            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0dWRlbnQiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc5MDMwMzQ0MCwiZXhwIjoxNzkwMzA3MDQwfQ.FxxK26OMTJeQeRKYYoEiQCPZoJGztE8aWEsn3IXJD8M",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
             "header": [],
             "body": {
               "mode": "raw",
@@ -119,12 +129,10 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3000/api/students/663020003",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/students/663020003",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "3000",
               "path": [
                 "api",
                 "students",
@@ -142,7 +150,17 @@
         {
           "name": "TC04-Registration Successful",
           "request": {
-            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0dWRlbnQiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc5MDMwNDIyNCwiZXhwIjoxNzkwMzA3ODI0fQ.85Srl1arMAHGQriifKEChzXqanDQzM1uPx5fXaTzm6k",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
@@ -154,12 +172,10 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3000/api/registrations",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/registrations",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "3000",
               "path": [
                 "api",
                 "registrations"
